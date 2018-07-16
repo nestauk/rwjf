@@ -105,5 +105,5 @@ venv.bak/
 .mypy_cache/
 
 # editing
-.swp
-.swo
+*.swp
+*.swo
