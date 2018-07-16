@@ -13,7 +13,7 @@
         },
         "innovation_ranking": {
             "type": "float",
-            "description", "A score representing how 'innovative' the project is, between 0 (least innovative) and 1 (most innovative). This attribute is liable to change as more sophisticated project innovation metrics are developed."
+            "description": "A score representing how 'innovative' the project is, between 0 (least innovative) and 1 (most innovative). This attribute is liable to change as more sophisticated project innovation metrics are developed."
         },
         "pub_med_uids": {
             "type": "int array",
