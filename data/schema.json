@@ -1,0 +1,72 @@
+{
+    "Project":{
+        "id": {
+            "type":"int"
+        },
+        "title": {
+            "type": "str",
+            "description": "Title of the project. E.g. the research project title, or GitHub project name."
+        },
+        "body_text": {
+            "type": "str",
+            "description": "The original text of the document"
+        },
+        "innovation_ranking": {
+            "type": "float",
+            "description", "A score representing how 'innovative' the project is, between 0 (least innovative) and 1 (most innovative). This attribute is liable to change as more sophisticated project innovation metrics are developed."
+        },
+        "pub_med_uids": {
+            "type": "int array",
+            "description": "Unique IDs associated with articles on PubMed."
+        },
+        "source": {
+            "type": "str",
+            "description": "The original data source for this project, e.g. 'WorldReport', 'GitHub'"
+        },
+        "institutions": {
+            "type": "Institute['id'] array",
+            "description": "All of the institutions mentioned in the body text of the project."
+        },
+        "funder": {
+            "type": "Funder['id']",
+            "description": "The main funding body for the project as identified in the original data."
+        },
+        "mesh_labels": {
+            "type": "MeshLabel['id'] array",
+            "description": "The MeSH labels that have been associated with the body text of the project."
+        }
+    },
+    "Term":{
+        "id": {
+            "type": "int"
+        },
+        "name": "str",
+        "count": "int"
+    },
+    "Institution":{
+        "name": "str"
+    },
+    "Country":{
+        "name": "str"
+    },
+    "TermCoocurrence":{
+        "term_0": "Term['id']",
+        "term_1": "Term['id']",
+        "association_strength": "float"
+    },
+    "DocumentCoocurrence":{},
+    "Country":{
+        "id": "int",
+        "name": "str",
+        "iso3_country_code": "str"
+    },
+    "MeshLabel":{
+        "id": "int",
+        "name": "str",
+        "mesh_tree_number": "str"
+    },
+    "Funder":{
+        "id": "int",
+        "name": "str"
+    }
+}
