@@ -4,6 +4,16 @@ __pycache__/
 *$py.class
 *.pyc
 
+# data
+/data/interim/
+/data/external/
+/data/processed/
+/data/raw/
+# models
+/analysis/models/
+# figures
+/analysis/reports/figures/
+
 # C extensions
 *.so
 
@@ -72,6 +82,9 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# Mac OS
+*.DS_Store
 
 # pyenv
 .python-version
