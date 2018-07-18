@@ -46,7 +46,7 @@
         },
         "name": {
             "type": "str",
-            "description": "Lowecase text of the term."
+            "description": "Lowercase text of the term."
         },
         "count": {
             "type": "int",
@@ -68,7 +68,7 @@
             "type": "float"
         }
     },
-    "TermCoocurrence":{
+    "TermCooccurrence":{
         "term_0": {
             "type": "relationship Term['id']",
             "description": "The first term of the cooccurring pair when sorted alphabetically."
