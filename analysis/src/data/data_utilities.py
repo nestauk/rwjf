@@ -1,3 +1,6 @@
+import ast
+import itertools
+
 import numpy as np
 import pandas as pd
 
@@ -131,3 +134,39 @@ def dataframe_health_report(df, norm=False, report=False, diagnosis=False):
         print(health_report_df)
     
     return health_report_df
+
+def print_counter_extremes(counter, n=20, low_pass=5, order_low_counts=False):
+    """print_counter_extremes
+    Prints the top most common elements and a the least common elements
+    from a Counter object.
+    
+    Args:
+    counter (collections.Counter):
+    n (int): The number of elements to print. Will print n most common and
+        n least common. Defaults to 20.
+    low_pass (int): Threshold value that determines the highest possible count
+        for elements that fall into the "least common" group. Defaults to 5.
+    order_low_counts (bool): If True, will sort the elements with low counts
+        and print the 20 most common of those. Defaults to False.
+    """
+    most_common = counter.most_common(n)
+    low_counts = {k: v for k, v in counter.items() if v <= low_pass}
+    low_count_keys_n = list(itertools.islice(low_counts, n))
+    low_counts_n = [(k, low_counts[k]) for k in low_count_keys_n]
+        
+    max_len_high = 0
+    max_len_low = 0
+    for high, low in zip(most_common, low_counts_n):
+        if len(high[0]) > max_len_high:
+            max_len_high = len(high[0])
+        if len(low[0]) > max_len_low:
+            max_len_low = len(low[0])
+        
+    print('{:<{max_len_high}}\t{}\t{:{max_len_low}}\t{}\n'.format('Label (Common)', 'Count', 'Label (Uncommon)', 'Count',
+                                                                  max_len_high=max_len_high + 2,
+                                                                  max_len_low=max_len_low + 2))
+    for high, low in zip(most_common, low_counts_n):
+        print('{:<{max_len_high}}\t{}\t{:{max_len_low}}\t{}'.format(high[0], high[1], low[0], low[1],
+                                                         max_len_high=max_len_high + 2,
+                                                         max_len_low=max_len_low + 2))
+    print('\n')
